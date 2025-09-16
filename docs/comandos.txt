@@ -1,0 +1,15 @@
+Comando de instação de para o novo projeto
+
+ - Abrir o VS Code, no diretório do projeto
+ - Abrir o terminal com o Git Bash
+	npm init -y
+ - Instalar o Playwright
+       npm install -D @playwright/test
+ - Inicializar o playwright
+       npx playwright install
+ - Rodar os teste exibindo o navegador
+       npx playwright test --headed
+
+ - Credenciais do Git
+       git config --global user.name ""
+       git config --global user.email ""

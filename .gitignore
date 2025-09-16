@@ -1,0 +1,5 @@
+/node_modules
+/package-lock.json
+/test-results
+/docs/codigo_professor.txt
+/docs/comentarios.txt
