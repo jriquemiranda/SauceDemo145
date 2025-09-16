@@ -33,7 +33,8 @@ test('Realizar a compra de uma mochila', async({page}) => {
     await expect(page.locator(ico_qtd_cart)).toHaveText('1')
 
     // Clicar no icone do carrinho
-    await page.locator(ico_qtd_cart).click()
+    // await page.locator(ico_qtd_cart).click()
+    await page.click(ico_qtd_cart)
 
     // Verificar tá na página correta
     await expect(page).toHaveURL(/.*cart/)
