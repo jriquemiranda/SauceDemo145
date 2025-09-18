@@ -8,7 +8,7 @@ const { test, expect } = require('@playwright/test')
 test('Realizar a compra de uma mochila', async({page}) => {
     
     // Acessar o site saucedemo.com
-    await page.goto('https://www.saucedemo.com')
+    await page.goto('/')
 
     // Verificar tá na página correta
     await expect(page).toHaveURL('https://www.saucedemo.com')
