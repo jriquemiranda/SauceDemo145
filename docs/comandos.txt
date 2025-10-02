@@ -13,3 +13,8 @@ Comando de instação de para o novo projeto
  - Credenciais do Git
        git config --global user.name ""
        git config --global user.email ""
+
+ - Quando precisa instalar uma nova dependência
+       rm -rf node_modules package-lock.json
+       npm cache clean --force
+       npm install
