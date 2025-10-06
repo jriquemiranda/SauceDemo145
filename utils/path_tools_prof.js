@@ -8,8 +8,7 @@ const fs = require('fs') // File System / biblioteca do Sistema Operacional
 const path = require('path') // biblioteca de caminhos de pastas/arquivos
 
 // Formatar números com zero na frente, se precisar
-function pad2(num) { return String(num).padStart(2, '0')
-}
+function pad2(num){ return String(num).padStart(2, '0')}
 
 // Função para definir data e hora baseado no momento da execução
 function computeRunFolder(baseDir){
@@ -17,7 +16,7 @@ function computeRunFolder(baseDir){
     if (process.env.RUN_TAG){ // == true
         const tag = process.env.RUN_TAG.replace(/[^\w-:.]/g, '_') // CI
         const runDir = path.join(baseDir, tag)
-        fs.mkdirSync(runDir, {recursive: true})
+        fs.mkdirSync(runDir, {recursive:true})
         return runDir
     }
 
@@ -35,7 +34,7 @@ function computeRunFolder(baseDir){
 
     // Criar as pastas
     const runDir = path.join(baseDir, `${yyyy}`, `${MM}`, `${dd}`, `${HH}-${mm}-${ss}`)
-    fs.mkdirSync(runDir, {recursive: true})
+    fs.mkdirSync(runDir, {recursive:true})
     return runDir
    
 }
@@ -49,7 +48,7 @@ function ensureSubDirs(runDir){
     }
 
     Object.values(dirs).forEach(d => { // d = diretorio (subdiretorio)
-        if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true})
+        if (!fs.existsSync(d)) fs.mkdirSync(d, {recursive: true})
     })
     return dirs
 }
