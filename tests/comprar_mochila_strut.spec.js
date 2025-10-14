@@ -10,11 +10,11 @@ test.describe('SauceDemo - Fluxo Principal de compra', () => {
 
             // Verificação
             await expect(page).toHaveURL('/')
-            await page.waitForLoadState('load') // Esperar a página carregar por completo
 
-            await page.waitForResponse(response => response.url() === '/' && response.status() === 200) 
+            // await page.waitForLoadState('load') // Esperar a página carregar por completo
+            // await page.waitForResponse(response => response.url() === '/' && response.status() === 200) 
 
-            await expect(page.locator('[data-test="username"]')).toHaveText('Login')
+            await expect(page.locator('[data-test="login-button"]')).toHaveText('Login')
             // Snap
             await snap(page, testInfo, 'TCPasso01-Home')
         })
@@ -22,7 +22,7 @@ test.describe('SauceDemo - Fluxo Principal de compra', () => {
         await test.step('Efetuar login com sucesso', async() => {
             await page.locator('[data-test="username"]').fill('standard_user')
             await page.locator('[data-test="password"]').fill('secret_sauce')
-            await snap(page, testInfo, 'TCPasso02-Login')
+            // await snap(page, testInfo, 'TCPasso02-Login')
             await page.locator('[data-test="login-button"]').click()
 
             // Verificação
@@ -35,9 +35,12 @@ test.describe('SauceDemo - Fluxo Principal de compra', () => {
 
         await test.step('Adicionar mochila no carrinho', async() => {
             // const produto = page.locator('.inventory_item').filter({hasText:'Backpack'})
-            const produto = page.locator('.inventory_item', {hasText:'Backpack'})
-            await produto.locator('button').toHaveText('Add to cart')
+            // const produto = page.locator('.inventory_item', {hasText:'Backpack'})
+            // await expect(produto.locator('button')).toHaveText('Add to cart')
 
+            const seletor_mochila = page.locator('.inventory_item').filter({ hasText: /Backpack/ })
+            await seletor_mochila.getByRole('button', { name: /Add to cart/ }).click()
+            
             await expect(page.locator('.shopping_cart_badge')).toHaveText('1')
             await snap(page, testInfo, 'TCPasso03-Produto-Adicionado')
 
