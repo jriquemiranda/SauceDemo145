@@ -2,7 +2,7 @@ import {test,expect} from '../utils/logger.js'
 import {snap} from '../utils/snap.js'
 
 test.describe('SauceDemo - Fluxo Principal de compra', () => {
-    test('Login, adicionar mochila no carinho e verificações', async({page}, testInfo) => {
+    test('Login, adicionar mochila', async({page}, testInfo) => {
         testInfo.setTimeout(testInfo.timeout + 15000)
 
         await test.step('Acessar o site SauceDemo', async() => {

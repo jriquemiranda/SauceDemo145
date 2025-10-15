@@ -33,7 +33,8 @@ function computeRunFolder(baseDir){
     // const Dia = String(now.getDate()).padStart(2, '0')   
 
     // Criar as pastas
-    const runDir = path.join(baseDir, `${yyyy}`, `${MM}`, `${dd}`, `${HH}-${mm}-${ss}`)
+    // const runDir = path.join(baseDir, `${yyyy}`, `${MM}`, `${dd}`, `${HH}-${mm}-${ss}`)
+    const runDir = path.join(baseDir, `${yyyy}`, `${MM}`, `${dd}`, `${HH}-${mm}`)
     fs.mkdirSync(runDir, {recursive:true})
     return runDir
    
