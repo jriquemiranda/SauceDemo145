@@ -18,7 +18,7 @@ function safe_name(name){
 */
 
 async function snap(page, test_info, label){
-    const file = `${safe_name(test_info.title)}__${safe_name(label)}.png`
+    const file = `${safe_name(test_info.title)}/${safe_name(label)}.png`
     const dest = path.join(SHOTS_DIR, file)
 
     fs.mkdirSync(SHOTS_DIR, {recursive:true})
